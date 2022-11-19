@@ -21,7 +21,6 @@ public class ExpressionEvaluator {
             else if(symbol.equals("/")) operatori.push(symbol);
             else if(symbol.equals("*")) operatori.push(symbol);
             else if(symbol.equals("sqrt")) operatori.push(symbol);
-            else if(symbol.equals("pow")) operatori.push(symbol);
             else if(symbol.equals(")")) {
                 operator = operatori.pop();
                 Double value = operandi.pop();
