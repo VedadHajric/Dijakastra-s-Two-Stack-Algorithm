@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
- * Unit testovi za naš projekat odnosno zadacu
+ * Unit testovi za nas projekat odnosno zadacu za klasu ExpressionEvaluator
  */
 
 public class ExpressionEvaluatorTest {
