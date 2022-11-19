@@ -31,8 +31,8 @@ public class ExpressionEvaluatorTest {
      */
     @Test
     public void trazenjeKorijena() {
-        Double izraz = ExpressionEvaluator.evaluate("( sqrt ( 5 * 20 ) )");
-        assertEquals((Double)10., (Double)izraz);
+        Double izraz = ExpressionEvaluator.evaluate("( sqrt ( 4 * 16 ) )");
+        assertEquals((Double)8., (Double)izraz);
     }
 
     /**
@@ -40,8 +40,24 @@ public class ExpressionEvaluatorTest {
      */
     @Test
     public void dijeljenje() {
-        Double izraz = ExpressionEvaluator.evaluate("1 + ( 5 / 5 ) )");
-        assertEquals((Double)2., (Double)izraz);
+        Double izraz = ExpressionEvaluator.evaluate("6 + ( 3 / 3 ) )");
+        assertEquals((Double)7., (Double)izraz);
     }
-
+    /**
+     * Testiranje kad je rezultat negativan
+     */
+    @Test
+    public void negativni() {
+        Double izraz = ExpressionEvaluator.evaluate("8 - ( 3 * 9 ) )");
+        assertEquals((Double)(-19.), (Double)izraz);
+    }
+    /**
+     * Testiranje da li nas kod koji smo napisali baca gresku kod dijeljenja sa nulom
+     */
+    public void dijeljenjeSaNulom() {
+        RuntimeException thrown = assertThrows(RuntimeException.class, () -> {
+            ExpressionEvaluator.evaluate("( 15 / 0 )");
+        });
+        assertEquals("Nije dozvoljeno dijeliti sa nulom", thrown.getMessage());
+    }
 }
